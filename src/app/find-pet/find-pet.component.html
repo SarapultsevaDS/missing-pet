@@ -4,7 +4,10 @@
     <div class="search-bar__parameters">
       <mat-form-field appearance="fill">
         <mat-label>Окрас</mat-label>
-        <mat-select [(value)]="selectedOptions.color">
+        <mat-select
+          [(value)]="selectedOptions.color"
+          (selectionChange)="parameterChange($event.value, 'color')"
+        >
           <mat-option *ngFor="let color of colors" [value]="color.value">
             {{ color.viewValue }}</mat-option
           >
@@ -15,6 +18,7 @@
         <mat-select
           (selectionChange)="sexChange($event.value)"
           [(value)]="selectedOptions.sex"
+          (selectionChange)="parameterChange($event.value, 'sex')"
         >
           <mat-option *ngFor="let sex of sexes" [value]="sex.value">
             {{ sex.viewValue }}</mat-option
@@ -23,7 +27,10 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Животное</mat-label>
-        <mat-select [(value)]="selectedOptions.animal">
+        <mat-select
+          [(value)]="selectedOptions.animal"
+          (selectionChange)="parameterChange($event.value, 'animal')"
+        >
           <mat-option *ngFor="let animal of animalsList" [value]="animal.value">
             {{ animal.viewValue }}</mat-option
           >
@@ -31,13 +38,16 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Состояние</mat-label>
-        <mat-select [(value)]="selectedOptions.advertType">
+        <mat-select
+          [(value)]="selectedOptions.advertType"
+          (selectionChange)="parameterChange($event.value, 'advertType')"
+        >
           <mat-option *ngFor="let type of advertTypes" [value]="type.value">
             {{ type.viewValue }}</mat-option
           >
         </mat-select>
       </mat-form-field>
-      <button mat-raised-button color="accent">
+      <button mat-raised-button color="accent" (click)="findAdverts()">
         <mat-icon>search</mat-icon>
       </button>
     </div>

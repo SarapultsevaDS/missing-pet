@@ -31,15 +31,24 @@ export class FindPetComponent implements OnInit {
 
   public advertTypes: SelectableItem[] = [{ value: 0, viewValue: "Пропал" }, { value: 1, viewValue: "Найден" }]
 
-  public selectedOptions = { color: 3, sex: 2, animal: 0, advertType: 0 };
+  public selectedOptions: any = { color: 3, sex: 2, animal: 0, advertType: 0 };
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public sexChange(sex: number) {
+  public sexChange(sex: number): void {
     this.animalsList = sex === 1 ? this.femaleAnimals : this.maleAnimals;
+  }
+
+  public parameterChange(value: number, parameter: string): void {
+    this.selectedOptions['parameter'] = value;
+    console.log(this.selectedOptions);
+  }
+
+  public findAdverts(): void {
+    //do something
   }
 
 }
