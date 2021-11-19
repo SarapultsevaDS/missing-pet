@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.content {
+  display: flex;
+  height: 100%;
+
+  .map {
+    text-align: center;
+    margin: auto;
+  }
+}
+
+.search-bar {
+  flex-basis: 45%;
+
+  .search-bar__parameters {
+    display: flex;
+    flex-flow: row nowrap;
+
+    mat-form-field::ng-deep {
+      .mat-form-field-underline {
+        position: unset;
+      }
+      .mat-form-field-wrapper {
+        padding-bottom: 0em;
+      }
+    }
+  }
+}
